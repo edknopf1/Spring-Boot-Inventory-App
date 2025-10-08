@@ -38,34 +38,112 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        long partCount = partRepository.count();
+        long productCount = productRepository.count();
 
-       /*
+        if (partCount != 0);
+        {
+
+
         OutsourcedPart o= new OutsourcedPart();
-        o.setCompanyName("Western Governors University");
-        o.setName("out test");
+        o.setCompanyName("Diamond Car Dealer");
+        o.setName("Engine");
         o.setInv(5);
-        o.setPrice(20.0);
+        o.setPrice(200.0);
         o.setId(100L);
         outsourcedPartRepository.save(o);
         OutsourcedPart thePart=null;
         List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
         for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("out test"))thePart=part;
+            if(part.getName().equals("Engine"))thePart=part;
         }
 
         System.out.println(thePart.getCompanyName());
-        */
-        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
+
+        o = new OutsourcedPart();
+        o.setCompanyName("Diamond Car Dealer");
+        o.setName("Radiator");
+        o.setInv(5);
+        o.setPrice(100.0);
+        o.setId(200L);
+        outsourcedPartRepository.save(o);
+        thePart = null;
+        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+        for(OutsourcedPart part:outsourcedParts){
+            if(part.getName().equals("Engine"))thePart=part;
+        }
+
+        System.out.println(thePart.getCompanyName());
+
+        o = new OutsourcedPart();
+        o.setCompanyName("Diamond Car Dealer");
+        o.setName("Exhaust");
+        o.setInv(5);
+        o.setPrice(150.0);
+        o.setId(300L);
+        outsourcedPartRepository.save(o);
+        thePart = null;
+        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+        for(OutsourcedPart part:outsourcedParts){
+            if(part.getName().equals("Engine"))thePart=part;
+        }
+
+        System.out.println(thePart.getCompanyName());
+
+        o = new OutsourcedPart();
+        o.setCompanyName("Diamond Car Dealer");
+        o.setName("Belts");
+        o.setInv(20);
+        o.setPrice(50.0);
+        o.setId(400L);
+        outsourcedPartRepository.save(o);
+        thePart = null;
+        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+        for(OutsourcedPart part:outsourcedParts){
+            if(part.getName().equals("Engine"))thePart=part;
+        }
+
+        System.out.println(thePart.getCompanyName());
+
+        o = new OutsourcedPart();
+        o.setCompanyName("Diamond Car Dealer");
+        o.setName("Tires");
+        o.setInv(100);
+        o.setPrice(300.0);
+        o.setId(500L);
+        outsourcedPartRepository.save(o);
+        thePart = null;
+        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+        for(OutsourcedPart part:outsourcedParts){
+            if(part.getName().equals("Engine"))thePart=part;
+        }
+
+        System.out.println(thePart.getCompanyName());
+
+
+
+        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
         for(OutsourcedPart part:outsourcedParts){
             System.out.println(part.getName()+" "+part.getCompanyName());
         }
 
-        /*
-        Product bicycle= new Product("bicycle",100.0,15);
-        Product unicycle= new Product("unicycle",100.0,15);
-        productRepository.save(bicycle);
-        productRepository.save(unicycle);
-        */
+        }
+
+        if (productCount != 0);
+        {
+
+        Product SUV= new Product("SUV",40000.0,15);
+        Product Truck= new Product("Truck",55000.0,15);
+        Product Sedan= new Product("Sedan",20000.0,15);
+        Product Coupe= new Product("Coupe",25000.0,15);
+        Product Luxury= new Product("Luxury",60000.0,15);
+        productRepository.save(SUV);
+        productRepository.save(Truck);
+        productRepository.save(Sedan);
+        productRepository.save(Coupe);
+        productRepository.save(Luxury);
+
+        }
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Products"+productRepository.count());
