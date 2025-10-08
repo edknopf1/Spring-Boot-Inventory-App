@@ -16,7 +16,7 @@ Note: Do not remove any elements that were included in the screen. You may add a
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
 
-
+### **_Commit 10/8/2025 10:15 AM: edited mainscreen.html to include button to the "About Us" page. Created new class called "AboutController.java" and created new html called "about.html". Wrote a small paragraph on about page describing the company and coded AboutController.java properly so button on mainscreen.html would link to about.html. Also included a link back to mainscreen.html on the about.html page._**
 
 
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
