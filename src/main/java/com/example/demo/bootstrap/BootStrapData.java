@@ -1,8 +1,10 @@
 package com.example.demo.bootstrap;
 
+import com.example.demo.domain.InhousePart;
 import com.example.demo.domain.OutsourcedPart;
 import com.example.demo.domain.Part;
 import com.example.demo.domain.Product;
+import com.example.demo.repositories.InhousePartRepository;
 import com.example.demo.repositories.OutsourcedPartRepository;
 import com.example.demo.repositories.PartRepository;
 import com.example.demo.repositories.ProductRepository;
@@ -29,120 +31,99 @@ public class BootStrapData implements CommandLineRunner {
     private final ProductRepository productRepository;
 
     private final OutsourcedPartRepository outsourcedPartRepository;
+    private final InhousePartRepository inhousePartRepository;
 
-    public BootStrapData(PartRepository partRepository, ProductRepository productRepository, OutsourcedPartRepository outsourcedPartRepository) {
+    public BootStrapData(PartRepository partRepository, ProductRepository productRepository, OutsourcedPartRepository outsourcedPartRepository, InhousePartRepository inhousePartRepository) {
         this.partRepository = partRepository;
         this.productRepository = productRepository;
-        this.outsourcedPartRepository=outsourcedPartRepository;
+        this.outsourcedPartRepository = outsourcedPartRepository;
+        this.inhousePartRepository = inhousePartRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        long partCount = partRepository.count();
-        long productCount = productRepository.count();
 
-        if (partCount != 0);
-        {
+        if (partRepository.count() == 0) {
+            InhousePart engine = new InhousePart();
+            engine.setName("Engine");
+            engine.setInv(20);
+            engine.setPrice(300.0);
+            engine.setId(1);
+            inhousePartRepository.save(engine);
+
+            InhousePart radiator = new InhousePart();
+            radiator.setName("Radiator");
+            radiator.setInv(30);
+            radiator.setPrice(100.0);
+            radiator.setId(2);
+            inhousePartRepository.save(radiator);
 
 
+            OutsourcedPart exhaust = new OutsourcedPart();
+            exhaust.setName("Exhaust");
+            exhaust.setCompanyName("Larry's Parts");
+            exhaust.setInv(5);
+            exhaust.setPrice(200.0);
+            exhaust.setId(3);
+            outsourcedPartRepository.save(exhaust);
+
+            OutsourcedPart belts = new OutsourcedPart();
+            belts.setName("Belts");
+            belts.setCompanyName("Larry's Parts");
+            belts.setInv(50);
+            belts.setPrice(50.0);
+            belts.setId(4);
+            outsourcedPartRepository.save(belts);
+
+            OutsourcedPart tires = new OutsourcedPart();
+            tires.setName("Tires");
+            tires.setCompanyName("Larry's Parts");
+            tires.setInv(100);
+            tires.setPrice(400.0);
+            tires.setId(5);
+            outsourcedPartRepository.save(tires);
+        }
+
+        /*
         OutsourcedPart o= new OutsourcedPart();
-        o.setCompanyName("Diamond Car Dealer");
-        o.setName("Engine");
+        o.setCompanyName("Western Governors University");
+        o.setName("out test");
         o.setInv(5);
-        o.setPrice(200.0);
+        o.setPrice(20.0);
         o.setId(100L);
         outsourcedPartRepository.save(o);
         OutsourcedPart thePart=null;
         List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
         for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("Engine"))thePart=part;
+            if(part.getName().equals("out test"))thePart=part;
         }
 
         System.out.println(thePart.getCompanyName());
+        */
 
-        o = new OutsourcedPart();
-        o.setCompanyName("Diamond Car Dealer");
-        o.setName("Radiator");
-        o.setInv(5);
-        o.setPrice(100.0);
-        o.setId(200L);
-        outsourcedPartRepository.save(o);
-        thePart = null;
-        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("Engine"))thePart=part;
-        }
-
-        System.out.println(thePart.getCompanyName());
-
-        o = new OutsourcedPart();
-        o.setCompanyName("Diamond Car Dealer");
-        o.setName("Exhaust");
-        o.setInv(5);
-        o.setPrice(150.0);
-        o.setId(300L);
-        outsourcedPartRepository.save(o);
-        thePart = null;
-        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("Engine"))thePart=part;
-        }
-
-        System.out.println(thePart.getCompanyName());
-
-        o = new OutsourcedPart();
-        o.setCompanyName("Diamond Car Dealer");
-        o.setName("Belts");
-        o.setInv(20);
-        o.setPrice(50.0);
-        o.setId(400L);
-        outsourcedPartRepository.save(o);
-        thePart = null;
-        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("Engine"))thePart=part;
-        }
-
-        System.out.println(thePart.getCompanyName());
-
-        o = new OutsourcedPart();
-        o.setCompanyName("Diamond Car Dealer");
-        o.setName("Tires");
-        o.setInv(100);
-        o.setPrice(300.0);
-        o.setId(500L);
-        outsourcedPartRepository.save(o);
-        thePart = null;
-        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("Engine"))thePart=part;
-        }
-
-        System.out.println(thePart.getCompanyName());
-
-
-
-        outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
         for(OutsourcedPart part:outsourcedParts){
             System.out.println(part.getName()+" "+part.getCompanyName());
         }
 
-        }
+        /*
+        Product bicycle= new Product("bicycle",100.0,15);
+        Product unicycle= new Product("unicycle",100.0,15);
+        productRepository.save(bicycle);
+        productRepository.save(unicycle);
+        */
 
-        if (productCount != 0);
-        {
-
-        Product SUV= new Product("SUV",40000.0,15);
-        Product Truck= new Product("Truck",55000.0,15);
-        Product Sedan= new Product("Sedan",20000.0,15);
-        Product Coupe= new Product("Coupe",25000.0,15);
-        Product Luxury= new Product("Luxury",60000.0,15);
-        productRepository.save(SUV);
-        productRepository.save(Truck);
-        productRepository.save(Sedan);
-        productRepository.save(Coupe);
-        productRepository.save(Luxury);
-
+        if(productRepository.count() == 0) {
+            Product suv = new Product("SUV", 30000.0, 20);
+            productRepository.save(suv);
+            Product truck = new Product("Truck", 40000.0, 30);
+            productRepository.save(truck);
+            Product sedan = new Product("Sedan", 20000.0, 50);
+            productRepository.save(sedan);
+            Product coupe = new Product("Coupe", 25000.0, 15);
+            productRepository.save(coupe);
+            Product luxury = new Product("Luxury", 50000.0, 5);
+            productRepository.save(luxury);
         }
 
         System.out.println("Started in Bootstrap");
@@ -150,6 +131,10 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println(productRepository.findAll());
         System.out.println("Number of Parts"+partRepository.count());
         System.out.println(partRepository.findAll());
+
+
+
+
 
     }
 }
