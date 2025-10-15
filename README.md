@@ -23,6 +23,8 @@ E.  Add a sample inventory appropriate for your chosen store to the application.
 
 ### **_Commit 10/8/2025 5:00 PM: edited BootStrapData.java to add 5 parts (lines 44-125) and 5 products(lines 132-146) to sample inventory. Used an if statement for each parts and products to not create duplicates._**
 
+### **_Commit 10/15/2025 3:54 PM: Had to fix code from previous commit as inventory values were duplicating, cleaned up code as well to make it more organized_**
+
 Note: Make sure the sample inventory is added only when both the part and product lists are empty. When adding the sample inventory appropriate for the store, the inventory is stored in a set so duplicate items cannot be added to your products. When duplicate items are added, make a “multi-pack” part.
 
 
@@ -32,6 +34,8 @@ F.  Add a “Buy Now” button to your product list. Your “Buy Now” button m
 •  The “Buy Now” button must be next to the buttons that update and delete products.
 • The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
 •  Display a message that indicates the success or failure of a purchase.
+
+### **_Commit 10/15/2025 4:50 PM: Added 2 HTML pages titled "Failure" and "Success" that displays message of success or failure of purchase. Coded lines 177-193 in the AddProductController.java page to add the "Buy Now" button and to check if inventory is 0 to return the "Failure" page, and if there is inventory, it decrements the inventory by 1 and returns the "Success" page._**
 
 
 
