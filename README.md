@@ -47,6 +47,7 @@ G.  Modify the parts to track maximum and minimum inventory by doing the followi
 •  Rename the file the persistent storage is saved to.
 •  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
 
+### **_Commit 10/16/2025 7:15 AM: Coded variables minInv and maxInv in Part class (lines 31-34) and gave them respective getters and setters (lines 97-111). Added Min Inventory and Max Inventory columns on mainscreen.html (lines 58-59, lines 68-69. Modified sample inventory to include Min and Max inventory fields (lines 52-53, 61,62, 72-73, 82-83, 92-93). Renamed database in application.properties. Added Min Inventory and Max Inventory fields to InhousePartForm and OutsourcedPartForm (lines 25-38 for each page). Created InventoryValidator and ValidInventory to throw error message on HTML pages if user enters Inv value higher than maxInv or lower than minInv._**
 
 
 

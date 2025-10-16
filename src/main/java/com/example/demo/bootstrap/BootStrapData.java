@@ -49,6 +49,8 @@ public class BootStrapData implements CommandLineRunner {
             engine.setInv(20);
             engine.setPrice(300.0);
             engine.setId(1);
+            engine.setMinInv(1);
+            engine.setMaxInv(25);
             inhousePartRepository.save(engine);
 
             InhousePart radiator = new InhousePart();
@@ -56,6 +58,8 @@ public class BootStrapData implements CommandLineRunner {
             radiator.setInv(30);
             radiator.setPrice(100.0);
             radiator.setId(2);
+            radiator.setMinInv(1);
+            radiator.setMaxInv(40);
             inhousePartRepository.save(radiator);
 
 
@@ -65,6 +69,8 @@ public class BootStrapData implements CommandLineRunner {
             exhaust.setInv(5);
             exhaust.setPrice(200.0);
             exhaust.setId(3);
+            exhaust.setMinInv(1);
+            exhaust.setMaxInv(10);
             outsourcedPartRepository.save(exhaust);
 
             OutsourcedPart belts = new OutsourcedPart();
@@ -73,6 +79,8 @@ public class BootStrapData implements CommandLineRunner {
             belts.setInv(50);
             belts.setPrice(50.0);
             belts.setId(4);
+            belts.setMinInv(1);
+            belts.setMaxInv(60);
             outsourcedPartRepository.save(belts);
 
             OutsourcedPart tires = new OutsourcedPart();
@@ -81,6 +89,8 @@ public class BootStrapData implements CommandLineRunner {
             tires.setInv(100);
             tires.setPrice(400.0);
             tires.setId(5);
+            tires.setMinInv(1);
+            tires.setMaxInv(200);
             outsourcedPartRepository.save(tires);
         }
 
